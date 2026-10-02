@@ -20,7 +20,9 @@ async function signIn(page: Page) {
   await page.goto('/login');
   await page.locator('#username').fill('developer');
   await page.locator('#password').fill(password);
+  const authenticated = page.waitForResponse(r => r.url().endsWith('/api/authenticate') && r.request().method() === 'POST');
   await page.locator('button[type=submit]').click();
+  expect((await authenticated).status()).toBe(200);
   await expect(page.getByText('Yönetim', { exact: true })).toBeVisible();
 }
 async function cash(request: APIRequestContext) {

@@ -5,7 +5,14 @@ import react from '@vitejs/plugin-react';
 import path from 'node:path';
 
 export default defineConfig({
-  plugins: [cloudflare({ viteEnvironment: { name: 'ssr' } }), tanstackStart(), react()],
+  plugins: [
+    cloudflare({
+      viteEnvironment: { name: 'ssr' },
+      ...(process.env.PIROT_E2E === 'true' ? { persistState: { path: '.wrangler/e2e' } } : {}),
+    }),
+    tanstackStart(),
+    react(),
+  ],
   resolve: {
     alias: [
       { find: 'react-jhipster-legacy', replacement: path.resolve('node_modules/react-jhipster/lib') },
