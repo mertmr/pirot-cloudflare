@@ -1,0 +1,30 @@
+{
+  "koopApp": {
+    "stokGirisi": {
+      "home": {
+        "title": "Stok Girişi",
+        "createLabel": "Yeni Stok Girişi",
+        "createOrEditLabel": "Yarat/Güncelle Stok Girişi",
+        "notFound": "Stok Girişi bulunamadı",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Stok Girişi yaratıldı {{ param }}",
+      "updated": "Stok Girişi güncellendi {{ param }}",
+      "deleted": "Stok Girişi silindi {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stok Girişi {{ id }}?"
+      },
+      "detail": {
+        "title": "Stok Girişi"
+      },
+      "miktar": "Miktar",
+      "agirlik": "Ağırlık",
+      "notlar": "Notlar",
+      "stokHareketiTipi": "Stok Hareketi Tipi",
+      "tarih": "Tarih",
+      "user": "Kullanıcı",
+      "urun": "Ürün",
+      "id": "ID"
+    }
+  }
+}

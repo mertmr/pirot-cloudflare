@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "types": ["vite/client", "@cloudflare/workers-types", "bun"]
+  },
+  "include": ["src/server/**/*.ts", "tests/**/*.ts", "scripts/**/*.ts", "src/client/typings.d.ts"],
+  "exclude": ["node_modules"]
+}

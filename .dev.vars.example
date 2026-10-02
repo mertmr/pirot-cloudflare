@@ -1,0 +1,6 @@
+# Copy to .dev.vars only for local development, or use bun run local:setup.
+AUTH_SECRET=replace-with-a-random-secret-of-at-least-32-characters
+BOOTSTRAP_SECRET=replace-with-a-different-random-local-bootstrap-secret
+ENVIRONMENT=development
+PUBLIC_URL=http://localhost:9070
+EMAIL_FROM=pirot@example.invalid

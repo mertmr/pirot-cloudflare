@@ -1,0 +1,105 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pirot-cloudflare",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "triggers": { "crons": ["* * * * *"] },
+  "observability": { "enabled": true },
+  "vars": { "ENVIRONMENT": "production", "PUBLIC_URL": "https://pirot.example.invalid" },
+  "durable_objects": {
+    "bindings": [
+      { "name": "TENANTS", "class_name": "CooperativeTenant" },
+      { "name": "PASSWORDS", "class_name": "PasswordHasher" },
+      { "name": "DELIVERY", "class_name": "JobDelivery" },
+    ],
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["CooperativeTenant"] },
+    { "tag": "v2", "new_sqlite_classes": ["PasswordHasher"] },
+    { "tag": "v3", "new_sqlite_classes": ["JobDelivery"] },
+  ],
+  "d1_databases": [
+    {
+      "binding": "DIRECTORY",
+      "database_name": "pirot-directory",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "env": {
+    "staging": {
+      "name": "pirot-cloudflare-staging",
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "BUSINESS_STORAGE": "d1",
+        "PUBLIC_URL": "https://pirot-cloudflare-staging.mertmr.workers.dev",
+        "EMAIL_FROM": "pirot@pirot.io",
+        "EMAIL_ENABLED": "false",
+      },
+      "durable_objects": {
+        "bindings": [
+          { "name": "TENANTS", "class_name": "CooperativeTenant" },
+          { "name": "PASSWORDS", "class_name": "PasswordHasher" },
+          { "name": "DELIVERY", "class_name": "JobDelivery" },
+        ],
+      },
+      "d1_databases": [
+        {
+          "binding": "DIRECTORY",
+          "database_name": "pirot-directory-staging",
+          "database_id": "57f78376-a60b-427f-888d-7793774de03a",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "queues": {
+        "producers": [{ "binding": "JOBS", "queue": "pirot-jobs-staging" }],
+        "consumers": [
+          {
+            "queue": "pirot-jobs-staging",
+            "max_batch_size": 10,
+            "max_batch_timeout": 5,
+            "max_retries": 5,
+            "dead_letter_queue": "pirot-jobs-staging-dlq",
+          },
+        ],
+      },
+    },
+    "production": {
+      "name": "pirot-cloudflare-production",
+      "vars": {
+        "ENVIRONMENT": "production",
+        "PUBLIC_URL": "https://pirot-production.example.invalid",
+        "EMAIL_FROM": "pirot@example.invalid",
+        "EMAIL_ENABLED": "false",
+      },
+      "durable_objects": {
+        "bindings": [
+          { "name": "TENANTS", "class_name": "CooperativeTenant" },
+          { "name": "PASSWORDS", "class_name": "PasswordHasher" },
+          { "name": "DELIVERY", "class_name": "JobDelivery" },
+        ],
+      },
+      "d1_databases": [
+        {
+          "binding": "DIRECTORY",
+          "database_name": "pirot-directory-production",
+          "database_id": "00000000-0000-0000-0000-000000000003",
+          "migrations_dir": "migrations",
+        },
+      ],
+      "queues": {
+        "producers": [{ "binding": "JOBS", "queue": "pirot-jobs-production" }],
+        "consumers": [
+          {
+            "queue": "pirot-jobs-production",
+            "max_batch_size": 10,
+            "max_batch_timeout": 5,
+            "max_retries": 5,
+            "dead_letter_queue": "pirot-jobs-production-dlq",
+          },
+        ],
+      },
+    },
+  },
+}

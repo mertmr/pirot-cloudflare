@@ -1,0 +1,31 @@
+{
+  "cloudflare": {
+    "operations": "Cloudflare İşlemleri",
+    "signInSuffix": " yaparak kooperatifinize erişebilirsiniz.",
+    "tenant": "Kooperatif",
+    "initialPassword": "İlk parola (boş bırakırsanız e-posta daveti gönderilir)",
+    "loadError": "Bilgiler yüklenemedi.",
+    "saveError": "Bilgiler kaydedilemedi.",
+    "saved": "Kaydedildi.",
+    "dashboardHelp": "İstek ölçümleri, günlükler ve izler Cloudflare panelinde bulunur.",
+    "schemaVersion": "Veri şeması sürümü",
+    "databaseSize": "Veritabanı boyutu",
+    "pendingJobs": "Bekleyen işler",
+    "historyRecords": "Geçmiş kayıtları",
+    "stockReports": "Ay sonu stok raporları",
+    "reportEmail": "Rapor e-posta adresi",
+    "enableReports": "Ay sonu raporunu etkinleştir",
+    "tenants": "Kooperatifler",
+    "tenantName": "Kooperatif adı",
+    "createTenant": "Kooperatif oluştur",
+    "reportQueued": "Rapor hazırlanıyor. Listeyi yenileyerek indirebilirsiniz.",
+    "generateReport": "Rapor oluştur",
+    "refresh": "Yenile",
+    "reportMonth": "Ay",
+    "reportCreated": "Oluşturulma zamanı",
+    "reportDownload": "İndir",
+    "emailUnavailable": "E-posta gönderimi kapalı. Kullanıcı oluştururken ilk parolayı belirleyin. Aylık raporları indirerek kullanabilirsiniz. Önceki e-posta işleri gönderim açılana kadar bekletilir.",
+    "initialPasswordRequired": "İlk parola (zorunlu)",
+    "databaseSizeDashboard": "Cloudflare D1 panelinde görüntüleyin"
+  }
+}

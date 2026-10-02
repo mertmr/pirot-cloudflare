@@ -1,0 +1,27 @@
+{
+  "koopApp": {
+    "kisiler": {
+      "home": {
+        "title": "Kişiler",
+        "createLabel": "Yeni Kisiler",
+        "createOrEditLabel": "Yarat/Güncelle Kisiler",
+        "notFound": "Kişiler bulanamadı",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Kisi yaratıldı {{ param }}",
+      "updated": "Kişi güncellendi {{ param }}",
+      "deleted": "Kişi silindi {{ param }}",
+      "delete": {
+        "question": "Bu Kişi girdisini silmek istediğinizden emin misiniz? {{ id }}?"
+      },
+      "detail": {
+        "title": "Kişiler"
+      },
+      "kisiAdi": "Kişi Adı",
+      "notlar": "Notlar",
+      "tarih": "Tarih",
+      "active": "Active",
+      "id": "ID"
+    }
+  }
+}

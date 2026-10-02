@@ -1,0 +1,26 @@
+{
+  "koopApp": {
+    "ureticiOdemeleri": {
+      "home": {
+        "title": "Üretici Ödemesi",
+        "createLabel": "Yeni Üretici Ödemesi Yarat",
+        "createOrEditLabel": "Düzenle/Yeni Yarat - Üretici Ödemesi",
+        "notFound": "No Üretici Ödemesi found",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "A new Üretici Ödemesi is created with identifier {{ param }}",
+      "updated": "A Üretici Ödemesi is updated with identifier {{ param }}",
+      "deleted": "A Üretici Ödemesi is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Sllmek istediğinize emin misiniz: {{ id }}?"
+      },
+      "detail": {
+        "title": "Üretici Ödemesi"
+      },
+      "tutar": "Tutar",
+      "sonGuncellenmeTarihi": "Son Güncellenme Tarihi",
+      "uretici": "Üretici",
+      "id": "ID"
+    }
+  }
+}

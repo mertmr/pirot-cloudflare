@@ -1,0 +1,10 @@
+{
+  "koopApp": {
+    "OdemeAraci": {
+      "null": "",
+      "NAKIT": "Cash",
+      "BANKA": "Card/Debit Card",
+      "SONRA_ODEME": "Pay Later"
+    }
+  }
+}

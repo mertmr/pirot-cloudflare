@@ -1,0 +1,28 @@
+{
+  "koopApp": {
+    "uretici": {
+      "home": {
+        "title": "Üreticiler",
+        "createLabel": "Yeni Üretici",
+        "createOrEditLabel": "Yarat/Güncelle Üretici",
+        "notFound": "No Üreticiler found",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Üretici yaratıldı {{ param }}",
+      "updated": "Üretici güncellendi {{ param }}",
+      "deleted": "Üretici güncellendi {{ param }}",
+      "delete": {
+        "question": "Üreticiyi silmek istediğinizden emin misiniz {{ id }}?"
+      },
+      "detail": {
+        "title": "Üretici"
+      },
+      "adi": "Adı",
+      "adres": "Adres",
+      "bankaBilgileri": "Banka Bilgileri",
+      "tarih": "Tarih",
+      "user": "User",
+      "id": "ID"
+    }
+  }
+}

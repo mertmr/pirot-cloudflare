@@ -1,0 +1,31 @@
+{
+  "cloudflare": {
+    "operations": "Cloudflare Operations",
+    "signInSuffix": " to access your cooperative.",
+    "tenant": "Cooperative",
+    "initialPassword": "Initial password (leave blank to send an email invitation)",
+    "loadError": "Could not load information.",
+    "saveError": "Could not save information.",
+    "saved": "Saved.",
+    "dashboardHelp": "Request metrics, logs and traces are available in the Cloudflare dashboard.",
+    "schemaVersion": "Schema version",
+    "databaseSize": "Database size",
+    "pendingJobs": "Pending jobs",
+    "historyRecords": "History records",
+    "stockReports": "Month-end stock reports",
+    "reportEmail": "Report email address",
+    "enableReports": "Enable month-end reports",
+    "tenants": "Cooperatives",
+    "tenantName": "Cooperative name",
+    "createTenant": "Create cooperative",
+    "reportQueued": "The report is being prepared. Refresh the list to download it.",
+    "generateReport": "Generate report",
+    "refresh": "Refresh",
+    "reportMonth": "Month",
+    "reportCreated": "Created at",
+    "reportDownload": "Download",
+    "emailUnavailable": "Outbound email is disabled. Set an initial password when creating users. Monthly reports remain available for download.Existing email jobs remain paused until sending is enabled.",
+    "initialPasswordRequired": "Initial password (required)",
+    "databaseSizeDashboard": "View in the Cloudflare D1 dashboard"
+  }
+}

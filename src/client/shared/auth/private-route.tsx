@@ -1,0 +1,75 @@
+import React, { useRef } from 'react';
+import { Translate } from 'app/shared/jhipster/language';
+import { Navigate, useLocation } from 'app/shared/routing/navigation';
+
+import { useAppSelector } from 'app/config/store';
+import ErrorBoundary from 'app/shared/error/error-boundary';
+
+interface IOwnProps {
+  path?: string;
+  hasAnyAuthorities?: string[];
+  children: React.ReactNode;
+}
+
+const PrivateRoute = ({ children, hasAnyAuthorities = [], ...rest }: IOwnProps) => {
+  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+  const sessionHasBeenFetched = useAppSelector(state => state.authentication.sessionHasBeenFetched);
+  const account = useAppSelector(state => state.authentication.account);
+  const isAuthorized = hasAnyAuthority(account.authorities, hasAnyAuthorities);
+  const pageLocation = useLocation();
+  const redirectFrom = useRef<{ pathname: string; search: string } | null>(null);
+  if (isAuthenticated) redirectFrom.current = null;
+  else if (sessionHasBeenFetched && !redirectFrom.current)
+    redirectFrom.current = { pathname: pageLocation.pathname, search: pageLocation.search };
+
+  if (!children) {
+    throw new Error(`A component needs to be specified for private route for path ${rest.path}`);
+  }
+
+  if (!sessionHasBeenFetched) {
+    return <div></div>;
+  }
+
+  if (isAuthenticated) {
+    if (isAuthorized) {
+      return <ErrorBoundary>{children}</ErrorBoundary>;
+    }
+
+    return (
+      <div className="insufficient-authority">
+        <div className="alert alert-danger">
+          <Translate contentKey="error.http.403">You are not authorized to access this page.</Translate>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <Navigate
+      to={{
+        pathname: '/login',
+        search: redirectFrom.current?.search,
+      }}
+      replace
+      state={{ from: redirectFrom.current }}
+    />
+  );
+};
+
+export const hasAnyAuthority = (authorities: string[] | undefined, hasAnyAuthorities: string[]) => {
+  if (authorities && authorities.length !== 0) {
+    if (hasAnyAuthorities.length === 0) {
+      return true;
+    }
+    return hasAnyAuthorities.some(auth => authorities.includes(auth));
+  }
+  return false;
+};
+
+/**
+ * Checks authentication before showing the children and redirects to the
+ * login page if the user is not authenticated.
+ * If hasAnyAuthorities is provided the authorization status is also
+ * checked and an error message is shown if the user is not authorized.
+ */
+export default PrivateRoute;

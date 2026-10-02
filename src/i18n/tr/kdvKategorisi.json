@@ -1,0 +1,25 @@
+{
+  "koopApp": {
+    "kdvKategorisi": {
+      "home": {
+        "title": "Kdv Kategorisi",
+        "createLabel": "Yeni Kdv Kategorisi",
+        "createOrEditLabel": "Yarat/Güncelle Kdv Kategorisi",
+        "notFound": "Kdv Kategorisi bulanamadı",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Yeni Kdv Kategorisi yaratıldı {{ param }}",
+      "updated": "Kdv Kategorisi güncellendi {{ param }}",
+      "deleted": "Kdv Kategorisi silindi {{ param }}",
+      "delete": {
+        "question": "Kdv Kategorisi {{ id } silmek istediğinize emin misiniz?}?"
+      },
+      "detail": {
+        "title": "Kdv Kategorisi"
+      },
+      "kategoriAdi": "Kategori Adı",
+      "kdvOrani": "Kdv Oranı",
+      "id": "ID"
+    }
+  }
+}

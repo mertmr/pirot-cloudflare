@@ -1,0 +1,10 @@
+{
+  "koopApp": {
+    "OdemeAraci": {
+      "null": "",
+      "NAKIT": "Nakit (Peşin)",
+      "BANKA": "Banka Kartı/Kredi Kartı",
+      "SONRA_ODEME": "Sonra Öde"
+    }
+  }
+}

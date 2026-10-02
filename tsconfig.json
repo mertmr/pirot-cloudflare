@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ES2024",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "DOM.Iterable", "ES2024"],
+    "types": ["vite/client", "@cloudflare/workers-types"],
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "paths": {
+      "app/*": ["./src/client/*"],
+      "react-jhipster-legacy/*": ["./node_modules/react-jhipster/lib/*"]
+    },
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true
+  },
+  "include": ["src", "tests", "vite.config.ts"],
+  "exclude": ["node_modules", "src/client/**/*.spec.ts", "src/client/**/*.spec.tsx"]
+}

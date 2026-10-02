@@ -1,0 +1,29 @@
+-- Synthetic migration fixture: schema only, no application records.
+-- Derived from Pirot ordered Liquibase declarations at 4fa92c08a96b3b9607c7c83687c7d17c474951f3.
+CREATE TABLE "urun_fiyat" ("id" BIGINT,"fiyat" numeric(21,2),"tarih" TIMESTAMP WITHOUT TIME ZONE,"user_id" BIGINT,"urun_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "jv_global_id" ("global_id_pk" BIGINT,"local_id" VARCHAR(191),"fragment" VARCHAR(200),"type_name" VARCHAR(200),"owner_id_fk" BIGINT);
+CREATE TABLE "jv_snapshot" ("snapshot_pk" BIGINT,"type" VARCHAR(200),"version" BIGINT,"state" TEXT,"changed_properties" TEXT,"managed_type" VARCHAR(200),"global_id_fk" BIGINT,"commit_fk" BIGINT);
+CREATE TABLE "koop_authority" ("name" VARCHAR(50));
+CREATE TABLE "koop_user" ("id" BIGINT,"login" VARCHAR(50),"password_hash" VARCHAR(60),"first_name" VARCHAR(50),"last_name" VARCHAR(50),"email" VARCHAR(191),"image_url" VARCHAR(256),"activated" BOOLEAN,"lang_key" VARCHAR(10),"activation_key" VARCHAR(20),"reset_key" VARCHAR(20),"created_by" VARCHAR(50),"created_date" TIMESTAMP WITHOUT TIME ZONE,"reset_date" TIMESTAMP WITHOUT TIME ZONE,"last_modified_by" VARCHAR(50),"last_modified_date" TIMESTAMP WITHOUT TIME ZONE,"tenant_id" BIGINT);
+CREATE TABLE "jv_commit_property" ("property_name" VARCHAR(191),"property_value" VARCHAR(600),"commit_fk" BIGINT);
+CREATE TABLE "koop_persistent_audit_event" ("event_id" BIGINT,"principal" VARCHAR(50),"event_date" TIMESTAMP WITHOUT TIME ZONE,"event_type" VARCHAR(255));
+CREATE TABLE "nobet_hareketleri" ("id" BIGINT,"fark" numeric(21, 2),"kasa" numeric(21, 2),"notlar" VARCHAR(255),"pirot" numeric(21, 2),"tarih" TIMESTAMP WITHOUT TIME ZONE,"nobet_suresi" numeric(21, 2),"user_id" BIGINT,"acilis_kapanis" VARCHAR(255),"fark_denge" numeric(21, 2),"tenant_id" BIGINT,"acilis_id" bigint,"kapanis_dokumu" text);
+CREATE TABLE "urun_fiyat_hesap" ("id" BIGINT,"amortisman" INTEGER,"dayanisma" INTEGER,"fire" INTEGER,"gider_pusula_mustahsil" INTEGER,"kooperatif_calisma" INTEGER,"urun_id" BIGINT,"dukkan_gider" INTEGER,"tenant_id" BIGINT,"fatura_tipi" VARCHAR(255));
+CREATE TABLE "stok_girisi" ("id" BIGINT,"miktar" INTEGER,"agirlik" INTEGER,"notlar" VARCHAR(255),"stok_hareketi_tipi" VARCHAR(255),"tarih" TIMESTAMP WITHOUT TIME ZONE,"user_id" BIGINT,"urun_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "satis_stok_hareketleri" ("id" BIGINT,"miktar" INTEGER,"tutar" numeric(21,2),"satis_id" BIGINT,"urun_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "koop_persistent_audit_evt_data" ("event_id" BIGINT,"name" VARCHAR(150),"value" VARCHAR(255));
+CREATE TABLE "satis" ("id" BIGINT,"tarih" TIMESTAMP WITHOUT TIME ZONE,"user_id" BIGINT,"toplam_tutar" numeric(21, 2),"ortaga_satis" BOOLEAN,"kartli_satis" BOOLEAN,"kisi_id" BIGINT,"tenant_id" BIGINT,"sonra_odeme" boolean,"odendi" boolean,"iptal" boolean,"nobet_acilis_id" bigint,"duzeltildi" boolean);
+CREATE TABLE "kasa_hareketleri" ("id" BIGINT,"hareket" VARCHAR(255),"kasa_miktar" numeric(21, 2),"tarih" TIMESTAMP WITHOUT TIME ZONE,"tenant_id" BIGINT,"degisim_tutari" decimal(21,2),"hareket_tipi" varchar(30),"duzeltme_id" bigint);
+CREATE TABLE "uretici_odemeleri" ("id" BIGINT,"tutar" numeric(21, 2),"son_guncellenme_tarihi" TIMESTAMP WITHOUT TIME ZONE,"uretici_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "kdv_kategorisi" ("id" BIGINT,"kategori_adi" VARCHAR(255),"kdv_orani" INTEGER,"tenant_id" BIGINT);
+CREATE TABLE "koop_user_authority" ("user_id" BIGINT,"authority_name" VARCHAR(50));
+CREATE TABLE "kisiler" ("id" BIGINT,"kisi_adi" VARCHAR(255),"notlar" VARCHAR(255),"tarih" TIMESTAMP WITHOUT TIME ZONE,"active" BOOLEAN,"tenant_id" BIGINT);
+CREATE TABLE "uretici" ("id" BIGINT,"adi" VARCHAR(255),"adres" VARCHAR(255),"banka_bilgileri" VARCHAR(255),"tarih" TIMESTAMP WITHOUT TIME ZONE,"user_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "urun" ("id" BIGINT,"urun_adi" VARCHAR(255),"musteri_fiyati" numeric(21,2),"birim" VARCHAR(255),"dayanisma_urunu" BOOLEAN,"urun_kategorisi" VARCHAR(255),"kdv_kategorisi_id" BIGINT,"stok" numeric(21, 2),"stok_siniri" numeric(21, 2),"satista" BOOLEAN,"urun_sorumlusu_id" BIGINT,"active" BOOLEAN,"uretici_id" BIGINT,"tenant_id" BIGINT);
+CREATE TABLE "gider" ("id" BIGINT,"tarih" TIMESTAMP WITHOUT TIME ZONE,"tutar" numeric(21,2),"notlar" VARCHAR(255),"gider_tipi" VARCHAR(255),"odeme_araci" VARCHAR(255),"user_id" BIGINT,"tenant_id" BIGINT,"iptal" boolean,"nobet_acilis_id" bigint,"duzeltildi" boolean);
+CREATE TABLE "jv_commit" ("commit_pk" BIGINT,"author" VARCHAR(200),"commit_date" TIMESTAMP WITHOUT TIME ZONE,"commit_date_instant" VARCHAR(30),"commit_id" numeric(22, 2));
+CREATE TABLE "borc_alacak" ("id" BIGINT,"hareket_tipi" VARCHAR(255),"notlar" VARCHAR(255),"odeme_araci" VARCHAR(255),"tarih" TIMESTAMP WITHOUT TIME ZONE,"tutar" numeric(21, 2),"urun_id" BIGINT,"user_id" BIGINT,"tenant_id" BIGINT,"satis_id" bigint);
+CREATE TABLE "virman" ("id" BIGINT,"tutar" numeric(21,2),"notlar" VARCHAR(255),"cikis_hesabi" VARCHAR(255),"tarih" TIMESTAMP WITHOUT TIME ZONE,"user_id" BIGINT,"giris_hesabi" VARCHAR(255),"tenant_id" BIGINT,"iptal" boolean,"nobet_acilis_id" bigint,"duzeltildi" boolean);
+CREATE TABLE "koop_tenant" ("id" BIGINT,"tenant_name" VARCHAR(50));
+CREATE TABLE "koop_date_time_wrapper" ("id" bigint,"instant" timestamp,"local_date_time" timestamp,"offset_date_time" timestamp,"zoned_date_time" timestamp,"local_time" time,"offset_time" time,"local_date" date);
+CREATE TABLE "nobet_duzeltme" ("tenant_id" bigint,"id" bigint,"kaynak_tipi" varchar(255),"kaynak_id" bigint,"kapanis_id" bigint,"nobet_acilis_id" bigint,"neden" varchar(500),"islem" varchar(255),"kullanici" varchar(255),"tarih" timestamp with time zone,"onceki" text,"sonraki" text,"kasa_degisimi" decimal(21,2),"bekleyen_kasa" decimal(21,2),"nakit_simdi" boolean,"odeme_tarihi" timestamp with time zone,"odeme_nobet_id" bigint,"odeme_kullanici" varchar(255));

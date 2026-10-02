@@ -1,0 +1,77 @@
+{
+  "koopApp": {
+    "nobetHareketleri": {
+      "home": {
+        "title": "Shift movements",
+        "createLabel": "Start or close a shift",
+        "createOrEditLabel": "Create or edit a shift movement",
+        "notFound": "No shift movements found",
+        "refreshListLabel": "Refresh List"
+      },
+      "created": "Shift movement {{ param }} was created",
+      "updated": "Shift movement {{ param }} was updated",
+      "deleted": "Shift movement {{ param }} was deleted",
+      "delete": {
+        "question": "Delete shift movement {{ id }}?"
+      },
+      "detail": {
+        "title": "Shift movements"
+      },
+      "startTitle": "Start shift",
+      "closeTitle": "Close shift",
+      "startDescription": "Count the cash in the drawer by denomination to start the shift.",
+      "closeDescription": "Count the cash in the drawer by denomination to close the shift.",
+      "cashCount": "Cash count",
+      "summary": "Summary",
+      "historicalValues": "Historical values",
+      "kasa": "Counted cash",
+      "pirot": "System cash",
+      "fark": "Variance",
+      "farkDenge": "Shift variance",
+      "nobetSuresi": "Shift duration",
+      "notlar": "Notes",
+      "acilisKapanis": "Start / close",
+      "tarih": "Date",
+      "user": "User",
+      "id": "ID",
+      "explanation": "Variance explanation / note",
+      "explanationPlaceholder": "Explain the reason when there is a variance.",
+      "explanationRequired": "Enter an explanation when there is a variance.",
+      "openingReference": "Opening variance: {{ fark }}",
+      "startAction": "Start shift",
+      "closeAction": "Close shift",
+      "loading": "Loading…",
+      "workflowError": "Shift status could not be loaded.",
+      "retry": "Retry",
+      "editTitle": "Edit shift record",
+      "deletionNotAllowed": "Shift movements cannot be deleted because report history must remain consistent.",
+      "expectedCashBreakdown": {
+        "title": "Expected cash breakdown",
+        "compactTitle": "Expected system cash",
+        "openingCash": "Opening system cash",
+        "satis": "Cash sales",
+        "tahsilat": "Cash collections",
+        "gider": "Expenses",
+        "virman": "Transfers",
+        "iade": "Refunds",
+        "diger": "Other / corrections",
+        "expectedCash": "Expected cash",
+        "details": "Movement details",
+        "time": "Time",
+        "type": "Type",
+        "message": "Description",
+        "delta": "Change",
+        "noMovements": "No cash movements in this period.",
+        "unreconciled": "Some cash movements required a balance-reconciliation entry; review the movement details.",
+        "types": {
+          "SATIS": "Sale",
+          "TAHSILAT": "Collection",
+          "GIDER": "Expense",
+          "VIRMAN": "Transfer",
+          "IADE": "Refund",
+          "DIGER": "Other"
+        }
+      }
+    }
+  }
+}

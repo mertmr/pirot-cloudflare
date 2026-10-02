@@ -1,0 +1,29 @@
+{
+  "koopApp": {
+    "gider": {
+      "home": {
+        "title": "Giderler",
+        "createLabel": "Yeni Gider",
+        "createOrEditLabel": "Gider Yarat/Düzenle",
+        "notFound": "Gider bulunamadı",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "{{ param }} idli gider yaratıldı",
+      "updated": "{{ param }} idli gider düzenlendi",
+      "deleted": "{{ param }} idli gider silindi",
+      "delete": {
+        "question": "{{ id }} idli gideri silmek istediğinize emin misiniz?"
+      },
+      "detail": {
+        "title": "Gider"
+      },
+      "tarih": "Tarih",
+      "tutar": "Tutar",
+      "notlar": "Notlar",
+      "giderTipi": "Gider Tipi",
+      "odemeAraci": "Odeme Araci",
+      "user": "User",
+      "id": "ID"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "koopApp": {
+    "nobetHareketleri": {
+      "home": {
+        "title": "Nöbet Hareketleri",
+        "createLabel": "Yeni Nöbetçi Hareketi",
+        "createOrEditLabel": "Nöbet hareketi oluştur veya düzenle",
+        "notFound": "Nöbet hareketi bulunamadı",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "{{ param }} numaralı nöbet hareketi oluşturuldu",
+      "updated": "{{ param }} numaralı nöbet hareketi güncellendi",
+      "deleted": "{{ param }} numaralı nöbet hareketi silindi",
+      "delete": {
+        "question": "{{ id }} numaralı nöbet hareketi silinsin mi?"
+      },
+      "detail": {
+        "title": "Nöbet Hareketleri"
+      },
+      "startTitle": "Nöbeti Başlat",
+      "closeTitle": "Nöbeti Kapat",
+      "startDescription": "Nöbet başlangıcı için kasadaki parayı kupürleriyle sayın.",
+      "closeDescription": "Nöbet kapanışı için kasadaki parayı kupürleriyle sayın.",
+      "cashCount": "Kasa sayımı",
+      "summary": "Özet",
+      "historicalValues": "Tarihsel değerler",
+      "kasa": "Sayılan Kasa",
+      "pirot": "Sistem Kasası",
+      "fark": "Fark",
+      "farkDenge": "Nöbet Farkı",
+      "nobetSuresi": "Nöbet Süresi",
+      "notlar": "Notlar",
+      "acilisKapanis": "Açılış / Kapanış",
+      "tarih": "Tarih",
+      "user": "Kullanıcı",
+      "id": "ID",
+      "explanation": "Fark açıklaması / not",
+      "explanationPlaceholder": "Fark varsa nedenini açıklayın.",
+      "explanationRequired": "Fark varsa açıklama girin.",
+      "openingReference": "Açılış farkı: {{ fark }} ₺",
+      "startAction": "Nöbeti Başlat",
+      "closeAction": "Nöbeti Kapat",
+      "loading": "Yükleniyor…",
+      "workflowError": "Nöbet durumu alınamadı.",
+      "retry": "Tekrar dene",
+      "editTitle": "Nöbet kaydını düzenle",
+      "deletionNotAllowed": "Nöbet hareketleri rapor geçmişini korumak için silinemez.",
+      "expectedCashBreakdown": {
+        "title": "Beklenen kasa dökümü",
+        "compactTitle": "Beklenen sistem kasası",
+        "openingCash": "Açılış sistem kasası",
+        "satis": "Nakit satışlar",
+        "tahsilat": "Nakit tahsilatlar",
+        "gider": "Giderler",
+        "virman": "Virmanlar",
+        "iade": "İadeler",
+        "diger": "Diğer / düzeltme",
+        "expectedCash": "Beklenen kasa",
+        "details": "Hareket ayrıntıları",
+        "time": "Zaman",
+        "type": "Tür",
+        "message": "Açıklama",
+        "delta": "Değişim",
+        "noMovements": "Bu aralıkta kasa hareketi yok.",
+        "unreconciled": "Bazı kasa hareketleri sistem bakiyesiyle mutabakat kalemi altında tamamlandı; ayrıntıları kontrol edin.",
+        "types": {
+          "SATIS": "Satış",
+          "TAHSILAT": "Tahsilat",
+          "GIDER": "Gider",
+          "VIRMAN": "Virman",
+          "IADE": "İade",
+          "DIGER": "Diğer"
+        }
+      }
+    }
+  }
+}

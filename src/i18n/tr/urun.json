@@ -1,0 +1,34 @@
+{
+  "koopApp": {
+    "urun": {
+      "home": {
+        "title": "Ürünler",
+        "createLabel": "Yeni Ürün",
+        "createOrEditLabel": "Yarat/Güncelle Ürün",
+        "notFound": "No Ürünler found",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Ürün yaratıldı {{ param }}",
+      "updated": "Ürün güncellendi {{ param }}",
+      "deleted": "Ürün silindi {{ param }}",
+      "delete": {
+        "question": "Bu ürünü silmek istediğinizden emin misiniz {{ id }}?"
+      },
+      "detail": {
+        "title": "Ürün"
+      },
+      "urunAdi": "Ürün Adi",
+      "stok": "Stok",
+      "stokSiniri": "Stok Sınırı",
+      "musteriFiyati": "Müşteri Fiyati",
+      "birim": "Birim",
+      "dayanismaUrunu": "Dayanışma Ürünü",
+      "satista": "Satışta",
+      "urunKategorisi": "Ürün Kategorisi",
+      "urunSorumlusu": "Ürün Sorumlusu",
+      "kdvKategorisi": "Kdv Kategorisi",
+      "id": "ID",
+      "active": "Aktif"
+    }
+  }
+}

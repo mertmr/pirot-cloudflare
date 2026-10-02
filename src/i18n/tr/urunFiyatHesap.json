@@ -1,0 +1,30 @@
+{
+  "koopApp": {
+    "urunFiyatHesap": {
+      "home": {
+        "title": "Fiyat Hesap",
+        "createLabel": "Hesap Kaydı",
+        "createOrEditLabel": "Düzenle",
+        "notFound": "No Urun Fiyat Hesaps found",
+        "refreshListLabel": "Listeyi Yenile"
+      },
+      "created": "Yeni kayıt oluşturuldu: {{ param }}",
+      "updated": "Kayıt düzenlendi: {{ param }}",
+      "deleted": "Kayıt silindi {{ param }}",
+      "delete": {
+        "question": "Silmek istediğinizden emin misiniz: {{ id }}?"
+      },
+      "detail": {
+        "title": "Ürün Fiyat Hesap"
+      },
+      "amortisman": "Amortisman",
+      "giderPusulaMustahsil": "Gider Pusula Mustahsil",
+      "dukkanGider": "Dukkan Gider",
+      "kooperatifCalisma": "Kooperatif Calisma",
+      "dayanisma": "Dayanisma",
+      "fire": "Fire",
+      "urun": "Ürün",
+      "id": "ID"
+    }
+  }
+}
