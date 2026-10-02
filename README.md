@@ -1,6 +1,6 @@
-# Pirot Cloudflare
+# Pirot Next
 
-Pirot is a Turkish consumer-cooperative management application built with TanStack Start, React, and Cloudflare Workers. It supports sales, stock, cash, debts, producer payments, shifts, corrections, and reports, with Turkish and English interfaces.
+Pirot Next is a Turkish consumer-cooperative management application built with TanStack Start, React, and Cloudflare Workers. It supports sales, stock, cash, debts, producer payments, shifts, corrections, and reports, with Turkish and English interfaces.
 
 All persistent application data lives in Cloudflare D1, including accounts, business records, history, request idempotency, background jobs, and report files. Financial effects commit together in a tenant-scoped D1 batch. Private stateless Durable Objects handle business computation, BCrypt, and report compression. Cloudflare Queues transport job references.
 

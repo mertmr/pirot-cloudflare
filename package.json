@@ -1,12 +1,12 @@
 {
-  "name": "pirot-cloudflare",
+  "name": "pirot-next",
   "version": "1.0.0",
   "private": true,
-  "description": "Pirot on Cloudflare",
-  "homepage": "https://github.com/mertmr/pirot-cloudflare",
+  "description": "Pirot Next cooperative management on Cloudflare",
+  "homepage": "https://github.com/mertmr/pirot-next",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mertmr/pirot-cloudflare.git"
+    "url": "https://github.com/mertmr/pirot-next.git"
   },
   "license": "MIT",
   "type": "module",

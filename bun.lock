@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "pirot-cloudflare",
+      "name": "pirot-next",
       "dependencies": {
         "@cloudflare/vite-plugin": "^1.62.4",
         "@fortawesome/fontawesome-svg-core": "7.3.0",

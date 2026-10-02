@@ -1,4 +1,4 @@
-# Pirot on Cloudflare
+# Pirot Next on Cloudflare
 
 This repository contains the standalone Cloudflare application. The original Spring application remains in a separate repository as a behavioral reference and rollback deployment. The new application has no Java, PostgreSQL, Redis, or external SMTP runtime dependency.
 

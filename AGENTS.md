@@ -1,4 +1,4 @@
-# Pirot Cloudflare
+# Pirot Next
 
 This is the standalone TanStack Start / Cloudflare version of Pirot, a Turkish consumer-cooperative management application. Tenant isolation and financial correctness are mandatory. More specific frontend guidance is in `src/client/AGENTS.md`.
 
