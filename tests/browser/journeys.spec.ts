@@ -1,4 +1,5 @@
-import { test, expect, type Page, type APIRequestContext } from '@playwright/test';
+import { test, expect, type APIRequestContext } from '@playwright/test';
+import { signIn } from './helpers';
 const password = 'Synthetic-local-password-42';
 let cachedToken: string;
 async function token(request: APIRequestContext) {
@@ -16,15 +17,6 @@ async function api(request: APIRequestContext, path: string, method = 'GET', dat
   expect(response.ok(), `${method} ${path}: ${response.status()}`).toBeTruthy();
   return response.status() === 204 ? null : response.json();
 }
-async function signIn(page: Page) {
-  await page.goto('/login');
-  await page.locator('#username').fill('developer');
-  await page.locator('#password').fill(password);
-  const authenticated = page.waitForResponse(r => r.url().endsWith('/api/authenticate') && r.request().method() === 'POST');
-  await page.locator('button[type=submit]').click();
-  expect((await authenticated).status()).toBe(200);
-  await expect(page.getByText('Yönetim', { exact: true })).toBeVisible();
-}
 async function cash(request: APIRequestContext) {
   return (await api(request, 'kasa-hareketleris?sort=id,desc'))[0].kasaMiktar;
 }
@@ -39,7 +31,7 @@ test('cash sale create, edit, read-back, delete restores stock and cash', async 
       satista: true,
     }),
     beforeCash = await cash(request);
-  await signIn(page);
+  await signIn(page, request);
   await page.goto('/satis/new');
   await page.getByPlaceholder('Ürün ara…').fill(name);
   await page.locator('[role=option]').filter({ hasText: name }).click();
@@ -63,8 +55,8 @@ test('cash sale create, edit, read-back, delete restores stock and cash', async 
   expect((await api(request, `uruns/${product.id}`)).stok).toBe('10');
   expect(await cash(request)).toBe(beforeCash);
 });
-test('Cloudflare administration and stock-report export work through authenticated UI', async ({ page }) => {
-  await signIn(page);
+test('Cloudflare administration and stock-report export work through authenticated UI', async ({ page, request }) => {
+  await signIn(page, request);
   await page.goto('/admin/operations');
   await expect(page.getByRole('heading', { name: 'Cloudflare İşlemleri' })).toBeVisible();
   await expect(page.getByText('Cloudflare D1 panelinde görüntüleyin')).toBeVisible();
@@ -90,8 +82,8 @@ for (const paths of [
   ['/uretici-odemeleri', '/urun-fiyat-hesap', '/urun-fiyat', '/satis-stok-hareketleri', '/reports/ciro'],
   ['/reports/aylikSatislar', '/reports/aylikSatislarMali', '/reports/ortakFaturalar', '/reports/tukenme', '/admin/user-management'],
 ]) {
-  test(`direct URLs ${paths.join(', ')} load without client errors`, async ({ page }) => {
-    await signIn(page);
+  test(`direct URLs ${paths.join(', ')} load without client errors`, async ({ page, request }) => {
+    await signIn(page, request);
     const errors: string[] = [];
     page.on('pageerror', e => errors.push(e.message));
     for (const path of paths) {
@@ -105,7 +97,7 @@ for (const paths of [
 
 test('administrator creates and edits a tenant user through the form', async ({ page, request }) => {
   const login = `browser-${crypto.randomUUID().slice(0, 8)}`;
-  await signIn(page);
+  await signIn(page, request);
   await page.goto('/admin/user-management/new');
   await page.locator('[name=login]').fill(login);
   await page.locator('[name=email]').fill(`${login}@example.invalid`);
@@ -140,7 +132,7 @@ test('monthly reports render actual persisted product quantities', async ({ page
     });
   const created = await api(request, 'satis', 'POST', { stokHareketleriLists: [{ urunId: product.id, miktar: 2 }] });
   try {
-    await signIn(page);
+    await signIn(page, request);
     await page.goto('/reports/aylikSatislar');
     const response = page.waitForResponse(r => r.url().includes(`getSatisRaporlari/${product.id}`));
     await page.locator('select').selectOption(String(product.id));
@@ -197,7 +189,7 @@ test('stock entry product changes preview and persist compensation for both prod
     notlar: 'Synthetic browser entry',
   });
   try {
-    await signIn(page);
+    await signIn(page, request);
     await page.goto(`/stok-girisi/${movement.id}/edit`);
     await page.locator('[name=urun]').selectOption(String(products[1].id));
     await page.locator('[name=miktar]').fill('3');
@@ -225,7 +217,7 @@ test('checkout displays and persists the same exact amount above JavaScript safe
       satista: true,
     }),
     beforeCash = await cash(request);
-  await signIn(page);
+  await signIn(page, request);
   await page.goto('/satis/new');
   await page.getByPlaceholder('Ürün ara…').fill(name);
   await page.locator('[role=option]').filter({ hasText: name }).click();
