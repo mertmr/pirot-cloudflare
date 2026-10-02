@@ -38,7 +38,7 @@ bun run test:browser
 bun audit --audit-level=high
 ```
 
-CI runs these checks without production secrets or deployment permissions. Persistence tests use actual Workerd/D1 behavior; browser journeys exercise the UI and API together. Playwright starts its own server on port 9071 and resets only `.wrangler/e2e`, a disposable local database separate from normal development. The migrated original suite in `tests/browser/legacy` covers sales, debt collection, stock, expenses, transfers, and shift corrections using synthetic tenants. The Spring metrics regression now checks Cloudflare operations diagnostics. The bundled legacy schema fixture keeps PostgreSQL export verification independent of the original Spring repository.
+CI runs these checks without production secrets or deployment permissions. Persistence tests use actual Workerd/D1 behavior; browser journeys exercise the UI and API together. Playwright starts its own server on port 9071 and resets only `.wrangler/e2e`, a disposable local database separate from normal development. The browser workflow suite covers sales, debt collection, stock, expenses, transfers, and shift corrections using per-test synthetic tenants and disposable products. The Spring metrics regression now checks Cloudflare operations diagnostics. The bundled legacy schema fixture keeps PostgreSQL export verification independent of the original Spring repository.
 
 ## Deployment and recovery
 
