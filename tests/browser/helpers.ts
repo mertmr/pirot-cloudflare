@@ -173,7 +173,8 @@ export async function signIn(page: Page, request: APIRequestContext, credentials
   const jwt = await authenticate(request, credentials);
   await page.addInitScript(token => sessionStorage.setItem('koop-authenticationToken', JSON.stringify(token)), jwt);
   await page.goto('/');
-  await expect(page.locator('#account-menu')).toBeVisible();
+  // The first navigation in a run also pays the dev-server cold start on CI.
+  await expect(page.locator('#account-menu')).toBeVisible({ timeout: 20_000 });
 }
 
 /** Adds a product to the POS cart through the real search listbox. */
