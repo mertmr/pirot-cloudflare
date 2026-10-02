@@ -81,38 +81,25 @@ test('Cloudflare administration and stock-report export work through authenticat
   expect(download.suggestedFilename()).toMatch(/\.xlsx$/);
   expect(await download.failure()).toBeNull();
 });
-test('direct entity and report URLs load without client errors', async ({ page }) => {
-  await signIn(page);
-  const errors: string[] = [];
-  page.on('pageerror', e => errors.push(e.message));
-  for (const path of [
-    '/urun',
-    '/uretici',
-    '/kdv-kategorisi',
-    '/kisiler',
-    '/stok-girisi',
-    '/gider',
-    '/virman',
-    '/borc-alacak',
-    '/kasa-hareketleri',
-    '/nobet-hareketleri',
-    '/uretici-odemeleri',
-    '/urun-fiyat-hesap',
-    '/urun-fiyat',
-    '/satis-stok-hareketleri',
-    '/reports/ciro',
-    '/reports/aylikSatislar',
-    '/reports/aylikSatislarMali',
-    '/reports/ortakFaturalar',
-    '/reports/tukenme',
-    '/admin/user-management',
-  ]) {
-    await page.goto(path);
-    await expect(page.locator('h2').first()).toBeVisible();
-    await expect(page.getByText('Beklenmeyen bir hata oluştu.')).toHaveCount(0);
-  }
-  expect(errors).toEqual([]);
-});
+// Keep route batches bounded and avoid exhausting the real login rate limit.
+for (const paths of [
+  ['/urun', '/uretici', '/kdv-kategorisi', '/kisiler', '/stok-girisi'],
+  ['/gider', '/virman', '/borc-alacak', '/kasa-hareketleri', '/nobet-hareketleri'],
+  ['/uretici-odemeleri', '/urun-fiyat-hesap', '/urun-fiyat', '/satis-stok-hareketleri', '/reports/ciro'],
+  ['/reports/aylikSatislar', '/reports/aylikSatislarMali', '/reports/ortakFaturalar', '/reports/tukenme', '/admin/user-management'],
+]) {
+  test(`direct URLs ${paths.join(', ')} load without client errors`, async ({ page }) => {
+    await signIn(page);
+    const errors: string[] = [];
+    page.on('pageerror', e => errors.push(e.message));
+    for (const path of paths) {
+      await page.goto(path);
+      await expect(page.locator('h2').first(), path).toBeVisible();
+      await expect(page.getByText('Beklenmeyen bir hata oluştu.'), path).toHaveCount(0);
+      expect(errors, path).toEqual([]);
+    }
+  });
+}
 
 test('administrator creates and edits a tenant user through the form', async ({ page, request }) => {
   const login = `browser-${crypto.randomUUID().slice(0, 8)}`;
