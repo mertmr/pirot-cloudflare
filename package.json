@@ -74,7 +74,7 @@
   "devDependencies": {
     "@ai-sdk/openai": "^4.0.71",
     "@cloudflare/workers-types": "^5.20261001.1",
-    "@e2e-dev/web": "^0.11.1",
+    "@e2e-dev/web": "0.11.2",
     "@eslint-react/eslint-plugin": "5.13.2",
     "@eslint/js": "10.0.1",
     "@playwright/test": "^1.63.0",
@@ -88,7 +88,7 @@
     "ai": "^7.0.107",
     "autoprefixer": "10.5.2",
     "deepmerge": "4.3.1",
-    "e2e": "^0.15.1",
+    "e2e": "0.16.0",
     "esbuild": "^0.28.2",
     "eslint": "10.6.0",
     "eslint-config-prettier": "10.1.8",
