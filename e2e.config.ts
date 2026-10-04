@@ -9,8 +9,6 @@ export default {
       name: 'chromium',
       engine: web({
         browser: 'chromium',
-        locale: 'tr-TR',
-        timezoneId: 'Europe/Istanbul',
         testIdAttribute: 'data-cy',
       }),
       app: {
