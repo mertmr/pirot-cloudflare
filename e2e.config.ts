@@ -37,7 +37,8 @@ export default {
   agents: {
     default: {
       model: chatgpt(process.env.PIROT_E2E_MODEL ?? 'gpt-6-luna'),
-      system: 'You test Pirot, a Turkish cooperative management app. Prefer visible navigation and verify the requested destination before finishing.',
+      system:
+        'You test Pirot, a Turkish cooperative management app. Prefer visible navigation and verify the requested destination before finishing.',
     },
   },
 } satisfies E2EConfig;
